@@ -1,0 +1,64 @@
+# Design-to-Code Bridge — consumer config
+#
+# Copy this file to `.design-to-code/config.yaml` at the root of your project.
+# All fields are optional; defaults shown.
+
+# Maximum LOC per slice. Mapper proposes a split if a slice exceeds this.
+slice_loc_budget: 550
+
+# Branch naming for slice PRs. {feature} = status.feature, {n} = slice number, {slug} = slice slug.
+slice_branch_pattern: "{feature}-pr-{n}-{slug}"
+
+# Default phase rhythm. Mapper proposes slices matching this rhythm; engineer can override per-feature.
+default_phase_rhythm: [scaffold, chrome, cards, wire, secondary, swap]
+
+# Per-gate severity. `error` blocks; `warn` records and advances; `pending` waits for human.
+gate_severities:
+  0: error  # intake — must complete
+  1: error  # materials present — HTML + screenshot required
+  2: warn   # DS-alignment of source — warn-only
+  3: error  # target audit
+  4: error  # scope
+  5: error  # component mapping — every flagged row must be acknowledged
+  6: error  # slice plan
+  7: error  # pre-slice
+  8: error  # pre-swap
+  9: warn   # pre-retro — non-blocking by default
+
+# Severity for guardrail violations surfaced by the design-to-code-guardrails skill
+# and the pre-commit-guardrails.sh hook.
+guardrail_severity: warn  # warn | error
+
+# Per-rule overrides. Empty by default. Use to silence a guardrail in your project.
+# Example:
+#   guardrail_overrides:
+#     border-2: off          # turn off the border-2 check (project uses brand-colored 2px borders)
+#     ring-2: error          # escalate to error
+guardrail_overrides: {}
+
+# Where /design-to-code:dashboard --write persists output.
+dashboard_output_path: docs/spikes/design-system/design-to-code-dashboard.md
+
+# Root for per-feature status.json files. State is gitignored; the folder is not.
+state_dir: .design-to-code/state
+
+# Component-folder layout. Mapper uses these to classify visual units into tiers
+# and to verify reuse claims.
+components_dirs:
+  base:           components/base
+  ds:             components/ds
+  custom_shared:  components/custom/shared
+  custom_pages:   components/custom/pages
+
+# Consumer build commands. Used by /design-to-code:retro and the post-merge hook
+# to verify the feature merged cleanly. Adjust to your stack.
+commands:
+  typecheck: "bun run typecheck"
+  build:     "bun run build"
+  lint:      "bun run lint"
+  test:      "bun test"
+
+# Optional: vendor icon library. Mapper flags icons not present here as iconGaps.
+icon_library:
+  package: "@untitledui-pro/icons/line"
+  manifest_path: null  # if your icon set has a generated index, point at it

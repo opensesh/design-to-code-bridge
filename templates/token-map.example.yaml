@@ -1,0 +1,73 @@
+# Design-to-Code Bridge — token map
+#
+# Copy this file to `.design-to-code/token-map.yaml` at the root of your project
+# and seed from your design system's tokens (brand.css, tokens.css, theme.ts).
+#
+# The mapper uses this file to translate raw hex / off-brand fonts / off-spec
+# spacing literals in design exports into your DS's semantic tokens.
+#
+# Add new entries any time you touch brand.css — keeping this file fresh keeps
+# the bridge cheap.
+
+version: 1
+
+# Hex → semantic token mapping. The mapper proposes the `class` for every hex
+# it sees in the JSX export.
+colors:
+  "#ffffff": { token: "color-white",   class: "bg-color-white",   note: "Pure white — avoid on large surfaces" }
+  "#000000": { token: "color-black",   class: "bg-color-black",   note: "Pure black — avoid on large surfaces" }
+
+  # Example brand tokens — replace with your DS palette
+  "#fffaee": { token: "color-vanilla",       class: "bg-color-vanilla",       note: "Warm off-white" }
+  "#191919": { token: "color-charcoal",      class: "bg-color-charcoal",      note: "Warm near-black" }
+  "#FE5102": { token: "bg-brand-solid",      class: "bg-bg-brand-solid",      note: "Primary CTA color only" }
+
+  # Background tokens
+  "#faf8f5": { token: "bg-primary",          class: "bg-bg-primary" }
+  "#0B0B0B": { token: "bg-primary-solid",    class: "bg-bg-primary-solid",    note: "Dark surface" }
+
+# Foreground (text/icon) tokens. Indexed by token name, not hex (text colors
+# almost always come from CSS variables in modern stacks).
+foreground:
+  fg-primary:        { class: "text-fg-primary",         css-var: "--fg-primary" }
+  fg-secondary:      { class: "text-fg-secondary",       css-var: "--fg-secondary" }
+  fg-tertiary:       { class: "text-fg-tertiary",        css-var: "--fg-tertiary" }
+  fg-brand-primary:  { class: "text-fg-brand-primary",   css-var: "--fg-brand-primary" }
+  fg-white:          { class: "text-fg-white",           css-var: "--fg-white" }
+
+# Borders
+borders:
+  border-primary:    { class: "border-border-primary",   css-var: "--border-primary" }
+  border-secondary:  { class: "border-border-secondary", css-var: "--border-secondary", note: "Default for containers" }
+  border-brand:      { class: "border-border-brand",     css-var: "--border-brand",     note: "Never use brand color for container borders at scale" }
+
+# Typography (your DS scale)
+typography:
+  display: { class: "font-display", note: "Display family" }
+  text:    { class: "font-text",    note: "Body family" }
+  mono:    { class: "font-mono",    note: "Monospace" }
+
+# Off-brand font families seen in design exports. Mapper force-maps these to
+# your DS family. Add any new strings you see in `font-family:` declarations.
+font_substitutions:
+  "Inter":              "font-text"
+  "system-ui":          "font-text"
+  "-apple-system":      "font-text"
+  "BlinkMacSystemFont": "font-text"
+  "Arial":              "font-text"
+  "Helvetica":          "font-text"
+  "ui-sans-serif":      "font-text"
+  "ui-monospace":       "font-mono"
+  "Courier":            "font-mono"
+
+# Focus-ring + disabled-state patterns. Mapper substitutes these for any
+# `ring-2` / `ring-offset-*` / raw disabled-state patterns it finds.
+focus_ring:  "ring-1 shadow-focus-ring ring-ring-brand"
+disabled_bg: "disabled:bg-bg-disabled_subtle"
+
+# Optional: import substitutions for V0 / Lovable exports.
+# (Mapper replaces non-DS imports with your DS equivalents.)
+import_substitutions: {}
+  # Example:
+  # "@/components/ui/button":  "@/components/base/base/buttons/button"
+  # "@radix-ui/react-tabs":    "@/components/base/application/tabs/tabs"
