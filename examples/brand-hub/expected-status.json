@@ -1,0 +1,73 @@
+{
+  "_comment": "Golden file for the Brand Hub run's final status.json. Used by test T6 (dashboard render). Reflects the spike §6 schema example with real PR numbers and commit hashes from PRs #314–#319 on the brand-hub-hifi branch.",
+  "feature": "brand-hub-hifi",
+  "phase": "complete",
+  "currentSlice": 6,
+  "totalPlannedSlices": 6,
+  "featureBranch": "brand-hub-hifi",
+  "targetRoute": "/brand-hub",
+  "isExistingRoute": true,
+  "specDocPath": "docs/spikes/design-system/2026-05/2026-05-12-brand-hub-hifi-bridge.md",
+  "designSourcePath": ".claude-design/brand-hub/",
+  "exportType": "claude-design",
+  "dsAlignment": "ok",
+  "warnings": [],
+  "started_at": "2026-05-12T18:25:00Z",
+  "completed_at": "2026-05-12T20:15:00Z",
+  "gateLog": [
+    { "gate": 0, "result": "pass", "atISO": "2026-05-12T18:25:00Z" },
+    { "gate": 1, "result": "pass", "atISO": "2026-05-12T18:30:00Z" },
+    { "gate": 2, "result": "pass", "atISO": "2026-05-12T18:31:00Z" },
+    { "gate": 3, "result": "pass", "atISO": "2026-05-12T18:40:00Z" },
+    { "gate": 4, "result": "pass", "atISO": "2026-05-12T18:50:00Z" },
+    { "gate": 5, "result": "pass", "atISO": "2026-05-12T19:00:00Z", "note": "47 units mapped; 2 low-conf acknowledged" },
+    { "gate": 6, "result": "pass", "atISO": "2026-05-12T19:01:00Z" },
+    { "gate": 7, "result": "pass", "atISO": "2026-05-12T19:01:30Z", "note": "slice 1" },
+    { "gate": 7, "result": "pass", "atISO": "2026-05-12T19:07:00Z", "note": "slice 2" },
+    { "gate": 7, "result": "pass", "atISO": "2026-05-12T19:21:00Z", "note": "slice 3" },
+    { "gate": 7, "result": "pass", "atISO": "2026-05-12T19:36:00Z", "note": "slice 4" },
+    { "gate": 7, "result": "pass", "atISO": "2026-05-12T19:52:00Z", "note": "slice 5" },
+    { "gate": 8, "result": "pass", "atISO": "2026-05-12T20:05:00Z" },
+    { "gate": 9, "result": "pass", "atISO": "2026-05-12T20:15:00Z" }
+  ],
+  "slices": [
+    { "n": 1, "title": "scaffold + .claude-design convention",         "slug": "scaffold",       "pr": 314, "merged": true, "merged_at": "2026-05-12T19:01:16Z", "loc": 150, "commits": ["92c490df"] },
+    { "n": 2, "title": "3-tab nav + collapsible overview block",       "slug": "chrome",         "pr": 315, "merged": true, "merged_at": "2026-05-12T19:07:22Z", "loc": 250, "commits": ["6720ade2"] },
+    { "n": 3, "title": "PillarCard + 8-card grid (mock data)",          "slug": "cards",          "pr": 316, "merged": true, "merged_at": "2026-05-12T19:21:00Z", "loc": 450, "commits": ["d3a1b8c2"] },
+    { "n": 4, "title": "wire Logo/Colors/Typography/Guidelines",        "slug": "wire",           "pr": 317, "merged": true, "merged_at": "2026-05-12T19:36:00Z", "loc": 250, "commits": ["a7e5f93b"] },
+    { "n": 5, "title": "Version History page (mocked seed)",            "slug": "secondary",      "pr": 318, "merged": true, "merged_at": "2026-05-12T19:52:00Z", "loc": 550, "commits": ["b2c8d4e1"] },
+    { "n": 6, "title": "swap to /brand-hub, delete dropped routes",     "slug": "swap",           "pr": 319, "merged": true, "merged_at": "2026-05-12T20:05:00Z", "loc": 150, "commits": ["f1a9e87c"] }
+  ],
+  "guardrailViolations": {
+    "devProps": 4,
+    "border-2": 1,
+    "ring-2": 2,
+    "raw-hex": 0,
+    "array-index-keys": 8,
+    "style-1-vars": 0,
+    "uui-first-skipped": 0
+  },
+  "componentMap": {
+    "totalUnits": 47,
+    "byTier": {
+      "base":          { "reused": 19, "new":  0 },
+      "ds":            { "reused":  4, "new":  1 },
+      "custom-shared": { "reused":  0, "new":  8 },
+      "custom-page":   { "reused":  0, "new": 12 },
+      "net-new":       { "reused":  0, "new":  3 }
+    },
+    "lowConfidenceCount": 0,
+    "iconGaps": ["slack", "asterisk-4-point"]
+  },
+  "scope": {
+    "routes_added": ["/brand-hub/illustrations", "/design-system"],
+    "routes_dropped": [
+      { "route": "/brand-hub/textures",  "no_bookmarks_confirmed": true },
+      { "route": "/brand-hub/resources", "no_bookmarks_confirmed": true }
+    ],
+    "behavior_ports": [
+      { "behavior": "OnboardingWizard trigger", "ported_in_slice": 6, "verified": true },
+      { "behavior": "AddPageModal",             "ported_in_slice": null, "verified": false, "decision": "dropped" }
+    ]
+  }
+}
