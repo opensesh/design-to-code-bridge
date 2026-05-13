@@ -1,0 +1,61 @@
+{
+  "_comment": "Mid-flight feature for the dashboard test (T6). Mapping committed but slicing in progress.",
+  "feature": "spaces-redesign",
+  "phase": "slice",
+  "currentSlice": 3,
+  "totalPlannedSlices": 5,
+  "featureBranch": "spaces-redesign",
+  "targetRoute": "/spaces",
+  "isExistingRoute": true,
+  "specDocPath": "docs/spikes/design-system/2026-06/2026-06-04-spaces-redesign-bridge.md",
+  "designSourcePath": ".claude-design/spaces-redesign/",
+  "exportType": "figma",
+  "dsAlignment": "ok",
+  "warnings": [],
+  "started_at": "2026-06-04T14:00:00Z",
+  "gateLog": [
+    { "gate": 0, "result": "pass", "atISO": "2026-06-04T14:00:00Z" },
+    { "gate": 1, "result": "pass", "atISO": "2026-06-04T14:02:00Z" },
+    { "gate": 2, "result": "pass", "atISO": "2026-06-04T14:03:00Z" },
+    { "gate": 3, "result": "pass", "atISO": "2026-06-04T14:10:00Z" },
+    { "gate": 4, "result": "pass", "atISO": "2026-06-04T14:20:00Z" },
+    { "gate": 5, "result": "pass", "atISO": "2026-06-04T14:35:00Z", "note": "31 units mapped; 2 low-conf acknowledged" },
+    { "gate": 6, "result": "pass", "atISO": "2026-06-04T14:40:00Z" },
+    { "gate": 7, "result": "pass", "atISO": "2026-06-04T14:45:00Z", "note": "slice 1" },
+    { "gate": 7, "result": "pass", "atISO": "2026-06-04T15:30:00Z", "note": "slice 2" },
+    { "gate": 7, "result": "pass", "atISO": "2026-06-04T16:15:00Z", "note": "slice 3" }
+  ],
+  "slices": [
+    { "n": 1, "title": "scaffold + chrome",     "slug": "scaffold", "pr": 341, "merged": true,  "merged_at": "2026-06-04T14:45:00Z", "loc": 220, "commits": ["e8c4f291"] },
+    { "n": 2, "title": "cards (mock data)",     "slug": "cards",    "pr": 342, "merged": true,  "merged_at": "2026-06-04T15:30:00Z", "loc": 410, "commits": ["b7a3d8e2"] },
+    { "n": 3, "title": "wire real spaces data", "slug": "wire",     "pr": 343, "merged": true,  "merged_at": "2026-06-04T16:15:00Z", "loc": 350, "commits": ["f9c2e1ab"] },
+    { "n": 4, "title": "members + permissions", "slug": "secondary","pr": null,"merged": false, "loc": 0,   "commits": [] },
+    { "n": 5, "title": "swap to /spaces",        "slug": "swap",     "pr": null,"merged": false, "loc": 0,   "commits": [] }
+  ],
+  "guardrailViolations": {
+    "devProps": 2,
+    "border-2": 0,
+    "ring-2": 1,
+    "raw-hex": 1,
+    "array-index-keys": 3
+  },
+  "componentMap": {
+    "totalUnits": 31,
+    "byTier": {
+      "base":          { "reused": 14, "new": 0 },
+      "ds":            { "reused":  4, "new": 0 },
+      "custom-shared": { "reused":  0, "new": 4 },
+      "custom-page":   { "reused":  0, "new": 5 },
+      "net-new":       { "reused":  0, "new": 0 }
+    },
+    "lowConfidenceCount": 0,
+    "iconGaps": []
+  },
+  "scope": {
+    "routes_added": [],
+    "routes_dropped": [],
+    "behavior_ports": [
+      { "behavior": "members invite modal", "ported_in_slice": 4, "verified": false }
+    ]
+  }
+}

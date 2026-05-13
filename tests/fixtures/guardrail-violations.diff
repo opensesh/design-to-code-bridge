@@ -1,0 +1,46 @@
+diff --git a/components/custom/pages/example/Bad.tsx b/components/custom/pages/example/Bad.tsx
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/components/custom/pages/example/Bad.tsx
+@@ -0,0 +1,40 @@
++import { devProps } from '@/lib/utils/dev-props';
++
++export function Bad({ items }: { items: { id: string; label: string }[] }) {
++  return (
++    <div {...devProps('NotBad')} className="border-2 border-border-primary">
++      <h2 className="text-fg-primary">Title</h2>
++      <button className="focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500/30">
++        Click
++      </button>
++      <button className="focus-visible:ring-2">
++        Two
++      </button>
++      <div style={{ background: '#FE5102' }}>aperol</div>
++      <div className="bg-[#FFFAEE] text-[#191919]">vanilla</div>
++      <div className="bg-[var(--bg-primary)] text-[var(--fg-primary)]">style-1</div>
++      <ul>
++        {items.map((item, i) => (
++          <li key={i}>{item.label}</li>
++        ))}
++      </ul>
++      <ol>
++        {items.map((item, idx) => (
++          <li key={idx}>{item.label}</li>
++        ))}
++      </ol>
++      <section>
++        {items.map((item, index) => (
++          <article key={index}>{item.label}</article>
++        ))}
++      </section>
++      <div>
++        {items.map((item, i) => <span key={i}>{item.label}</span>)}
++        {items.map((item, i) => <span key={i}>{item.label}</span>)}
++        {items.map((item, i) => <span key={i}>{item.label}</span>)}
++        {items.map((item, i) => <span key={i}>{item.label}</span>)}
++        {items.map((item, i) => <span key={i}>{item.label}</span>)}
++      </div>
++    </div>
++  );
++}
