@@ -1,0 +1,20 @@
+{
+  "name": "design-to-code-bridge",
+  "version": "0.1.0",
+  "description": "Translate design exports (HTML + screenshot) into design-system-aligned code through ten explicit gates",
+  "author": {
+    "name": "Open Session",
+    "email": "hello@opensession.co"
+  },
+  "repository": "https://github.com/opensesh/design-to-code-bridge",
+  "homepage": "https://github.com/opensesh/design-to-code-bridge",
+  "keywords": [
+    "claude-code",
+    "claude-plugin",
+    "design-to-code",
+    "design-systems",
+    "design-handoff",
+    "figma",
+    "claude-design"
+  ]
+}
